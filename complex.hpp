@@ -1,27 +1,30 @@
 #ifndef _COMPLEX_HPP_
 #define _COMPLEX_HPP_
 
-#include <iostream>
+#include <string>
+//#include <bits/stdc++.h>
 
 using namespace std;
 
 class complex
 {
 private:
-    double re;//real number
-    double im;//imaginary number
+    //double re;//real number
+    //double im;//imaginary number
     //char *arr;//for string
 public:
+    double re;//real number
+    double im;//imaginary number
     complex();
     complex(double a, double b);
-    ~complex();
+    //~complex();
     //void show();
+    friend void operator~(complex &p);
 };
 
 complex::complex()
 {
     re = im = 0.0;
-    arr = nullptr;
 }
 
 complex::complex(double a, double b)
@@ -30,17 +33,65 @@ complex::complex(double a, double b)
     im = b;
 }
 
-complex::~complex()
+//complex complex::operator>>(const complex &t) const{
+//    cin >> t.re >> t.im;
+    //return t;
+//}
+
+istream& operator>>(istream& in, complex& p)
 {
+
+    //cin.ignore(1,'(');
+
+    in >> p.re >> p.im;
+    //complex open;
+    //string line;
+    //string T;
+    //getline(cin, S);
+    //stringstream X(ios_base);
+
+
+
+   // int k = 0;
+   // while (getline(cin, T, ',')) {
+   //     if (k == 0)
+   //     {
+   //         p.re = stod(T);
+   //         k++;
+   //     } 
+    //    if (k == 1) 
+    //    {
+    //        p.im = stod(T);
+    //        k++;
+    //    }
+   //     if (k > 1) break;
+   // }
+
+    return in;
 }
 
-//void show(){
+ostream& operator << (ostream &os, const complex &p)
+{
+    os << "(" << p.re << ", " << p.im << "i)";
+    return os;
+}
 
-//    char *sh = new char;
-
-
-//    return nu;
+//void complex::operator~()
+//{
+    //complex conj;
+    //conj.re = t.re;
+    //im = -1.0 *im;
+    //return conj;
 //}
+
+void operator~(complex &p) 
+{
+    //complex tmp;
+    //tmp.re = t.re;
+    //tmp.im = -1.0 * t.im;
+    p.re = p.re;
+    p.im = -p.im;
+}
 
 
 
