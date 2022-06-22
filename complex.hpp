@@ -19,7 +19,7 @@ public:
     complex(double a, double b);
     //~complex();
     //void show();
-    friend void operator~(complex &p);
+    friend complex operator~(complex &p);
 };
 
 complex::complex()
@@ -76,23 +76,12 @@ ostream& operator << (ostream &os, const complex &p)
     return os;
 }
 
-//void complex::operator~()
-//{
-    //complex conj;
-    //conj.re = t.re;
-    //im = -1.0 *im;
-    //return conj;
-//}
-
-void operator~(complex &p) 
+complex operator~(complex &p) 
 {
-    //complex tmp;
-    //tmp.re = t.re;
-    //tmp.im = -1.0 * t.im;
-    p.re = p.re;
-    p.im = -p.im;
+    complex tmp;
+    tmp.re = p.re;
+    tmp.im = -p.im;
+    return tmp;
 }
-
-
 
 #endif
