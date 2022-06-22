@@ -2,27 +2,26 @@
 #define _COMPLEX_HPP_
 
 #include <string>
-//#include <bits/stdc++.h>
 
 using namespace std;
 
 class complex
 {
 private:
-    //double re;//real number
-    //double im;//imaginary number
-    //char *arr;//for string
-public:
     double re;//real number
     double im;//imaginary number
+public:
     complex();
     complex(double a, double b);
     //~complex();
     //void show();
+    friend istream& operator>>(istream& in, complex& p);
+    friend ostream& operator << (ostream &os, const complex &p);
     friend complex operator~(complex &p);
     //complex operator~(complex &p);
-    complex operator+(const complex &t) const;
-    complex operator-(const complex &t) const;
+    complex operator+(const complex &p) const;
+    complex operator-(const complex &p) const;
+    complex operator*(const complex &p) const;
 };
 
 complex::complex()
@@ -94,5 +93,14 @@ complex complex::operator-(const complex &p) const
     tmp.im = im - p.im;
     return tmp;   
 }
+
+complex complex::operator*(const complex &p) const
+{
+    complex tmp;
+    tmp.re = re * p.re - im * p.im;
+    tmp.im = im * p.re + re * p.im;
+    return tmp;   
+}
+
 
 #endif
