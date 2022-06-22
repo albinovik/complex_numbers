@@ -2,29 +2,33 @@
 #define _COMPLEX_HPP_
 
 #include <string>
-//#include <bits/stdc++.h>
 
 using namespace std;
 
 class complex
 {
 private:
-    //double re;//real number
-    //double im;//imaginary number
-    //char *arr;//for string
-public:
     double re;//real number
     double im;//imaginary number
+public:
     complex();
     complex(double a, double b);
     //~complex();
-    //void show();
+    friend istream& operator>>(istream& in, complex& p);
+    friend ostream& operator << (ostream &os, const complex &p);
     friend complex operator~(complex &p);
+<<<<<<< HEAD
     //complex operator~(complex &p);
     complex operator+(const complex &t) const;
     complex operator-(const complex &t) const;
     complex operator*(const complex &t) const;
     //complex operator*(const complex &t, double &a) const;
+=======
+    complex operator+(const complex &p) const;
+    complex operator-(const complex &p) const;
+    double todouble();
+    complex operator*(const complex &p) const;   
+>>>>>>> proba3
 };
 
 complex::complex()
@@ -41,29 +45,6 @@ complex::complex(double a, double b)
 istream& operator>>(istream& in, complex& p)
 {
     in >> p.re >> p.im;
-    //complex open;
-    //string line;
-    //string T;
-    //getline(cin, S);
-    //stringstream X(ios_base);
-
-
-
-   // int k = 0;
-   // while (getline(cin, T, ',')) {
-   //     if (k == 0)
-   //     {
-   //         p.re = stod(T);
-   //         k++;
-   //     } 
-    //    if (k == 1) 
-    //    {
-    //        p.im = stod(T);
-    //        k++;
-    //    }
-   //     if (k > 1) break;
-   // }
-
     return in;
 }
 
@@ -97,6 +78,16 @@ complex complex::operator-(const complex &p) const
     return tmp;   
 }
 
+<<<<<<< HEAD
+=======
+double complex::todouble()
+{
+    double k = 0.0;
+    if (im == 0.0) k = re;
+    return k; 
+}
+
+>>>>>>> proba3
 complex complex::operator*(const complex &p) const
 {
     complex tmp;
@@ -105,6 +96,7 @@ complex complex::operator*(const complex &p) const
     return tmp;   
 }
 
+<<<<<<< HEAD
 //complex complex::operator*(const complex &p, double &a) const
 //{
 //    complex tmp;
@@ -113,4 +105,6 @@ complex complex::operator*(const complex &p) const
 //    return tmp;   
 //}
 
+=======
+>>>>>>> proba3
 #endif
