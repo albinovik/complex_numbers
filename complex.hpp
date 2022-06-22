@@ -20,6 +20,9 @@ public:
     //~complex();
     //void show();
     friend complex operator~(complex &p);
+    //complex operator~(complex &p);
+    complex operator+(const complex &t) const;
+    complex operator-(const complex &t) const;
 };
 
 complex::complex()
@@ -33,16 +36,8 @@ complex::complex(double a, double b)
     im = b;
 }
 
-//complex complex::operator>>(const complex &t) const{
-//    cin >> t.re >> t.im;
-    //return t;
-//}
-
 istream& operator>>(istream& in, complex& p)
 {
-
-    //cin.ignore(1,'(');
-
     in >> p.re >> p.im;
     //complex open;
     //string line;
@@ -82,6 +77,22 @@ complex operator~(complex &p)
     tmp.re = p.re;
     tmp.im = -p.im;
     return tmp;
+}
+
+complex complex::operator+(const complex &p) const
+{
+    complex tmp;
+    tmp.re = re + p.re;
+    tmp.im = im + p.im;
+    return tmp;   
+}
+
+complex complex::operator-(const complex &p) const
+{
+    complex tmp;
+    tmp.re = re - p.re;
+    tmp.im = im - p.im;
+    return tmp;   
 }
 
 #endif
