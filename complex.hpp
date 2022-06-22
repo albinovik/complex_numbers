@@ -14,14 +14,13 @@ public:
     complex();
     complex(double a, double b);
     //~complex();
-    //void show();
     friend istream& operator>>(istream& in, complex& p);
     friend ostream& operator << (ostream &os, const complex &p);
     friend complex operator~(complex &p);
-    //complex operator~(complex &p);
     complex operator+(const complex &p) const;
     complex operator-(const complex &p) const;
-    complex operator*(const complex &p) const;
+    double todouble();
+    complex operator*(const complex &p) const;   
 };
 
 complex::complex()
@@ -38,29 +37,6 @@ complex::complex(double a, double b)
 istream& operator>>(istream& in, complex& p)
 {
     in >> p.re >> p.im;
-    //complex open;
-    //string line;
-    //string T;
-    //getline(cin, S);
-    //stringstream X(ios_base);
-
-
-
-   // int k = 0;
-   // while (getline(cin, T, ',')) {
-   //     if (k == 0)
-   //     {
-   //         p.re = stod(T);
-   //         k++;
-   //     } 
-    //    if (k == 1) 
-    //    {
-    //        p.im = stod(T);
-    //        k++;
-    //    }
-   //     if (k > 1) break;
-   // }
-
     return in;
 }
 
@@ -94,6 +70,13 @@ complex complex::operator-(const complex &p) const
     return tmp;   
 }
 
+double complex::todouble()
+{
+    double k = 0.0;
+    if (im == 0.0) k = re;
+    return k; 
+}
+
 complex complex::operator*(const complex &p) const
 {
     complex tmp;
@@ -101,6 +84,5 @@ complex complex::operator*(const complex &p) const
     tmp.im = im * p.re + re * p.im;
     return tmp;   
 }
-
 
 #endif
