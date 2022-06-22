@@ -21,7 +21,8 @@ public:
     complex operator+(const complex &p) const;
     complex operator-(const complex &p) const;
     double todouble();
-    complex operator*(const complex &p) const; 
+    complex operator*(const complex &p) const;
+    friend complex operator*(const int val, const complex &p);  
     //double operator*(const complex &p) const;  
 };
 

@@ -16,7 +16,7 @@ int main(){
           cout << "a + c is " << a + c << endl;
           cout << "a - c is " << a - c << endl;
           cout << "a * c is " << a * c << endl;
-          //cout << "2 * c is " << 2 * c << endl;
+          cout << "2 * c is " << 2 * c << endl;
           cout << "Enter a complex number (q to quit):" << endl;
       }
     cout << "Done!" << endl;

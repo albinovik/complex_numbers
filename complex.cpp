@@ -65,3 +65,11 @@ complex complex::operator*(const complex &p) const
     tmp.im = im * p.re + re * p.im;
     return tmp;   
 }
+
+complex operator*(const int val, const complex &p)
+{
+    complex tmp;
+    tmp.re = val * p.re;
+    tmp.im = val * p.im;
+    return tmp;   
+}
