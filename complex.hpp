@@ -23,6 +23,8 @@ public:
     //complex operator~(complex &p);
     complex operator+(const complex &t) const;
     complex operator-(const complex &t) const;
+    complex operator*(const complex &t) const;
+    //complex operator*(const complex &t, double &a) const;
 };
 
 complex::complex()
@@ -94,5 +96,21 @@ complex complex::operator-(const complex &p) const
     tmp.im = im - p.im;
     return tmp;   
 }
+
+complex complex::operator*(const complex &p) const
+{
+    complex tmp;
+    tmp.re = re * p.re - im * p.im;
+    tmp.im = im * p.re + re * p.im;
+    return tmp;   
+}
+
+//complex complex::operator*(const complex &p, double &a) const
+//{
+//    complex tmp;
+//    tmp.re = a * p.re;
+//    tmp.im = a * p.im;
+//    return tmp;   
+//}
 
 #endif
